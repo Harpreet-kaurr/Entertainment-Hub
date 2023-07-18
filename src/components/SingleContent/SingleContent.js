@@ -2,7 +2,6 @@ import React from 'react'
 import './SingleContent.css'
 import { img_300,unavailable } from '../../config/config'
 import { Badge } from '@mui/material'
-
 const SingleContent = ({
     id,
     poster,

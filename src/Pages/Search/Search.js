@@ -25,7 +25,6 @@ const Search = () => {
   const [hasPage,setHasPage] = useState(false);
 
   const fetchSearch = async () => {
-    try {
       const { data } = await axios.get(
           `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
         );
@@ -33,10 +32,6 @@ const Search = () => {
          setHasPage(true)
 
       setContent(data.results);
-
-    } catch (error) {
-      console.error(error);
-    }
   };
   
   useEffect(()=>{
@@ -60,7 +55,9 @@ const Search = () => {
               variant='contained' 
               style={{marginLeft:10}}
               onClick ={fetchSearch}
-            > <SearchIcon></SearchIcon> </Button>
+            > 
+            <SearchIcon></SearchIcon> 
+            </Button>
         </div>
 
         <Tabs 
